@@ -1,0 +1,4 @@
+sceneSetups:
+- path: C:/Users/lazaro-pc/Documents/sandy/UnityProyects/TestProyect/Assets/one.unity
+  isLoaded: 1
+  isActive: 1

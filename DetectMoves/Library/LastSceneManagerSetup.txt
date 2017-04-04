@@ -1,0 +1,4 @@
+sceneSetups:
+- path: Assets/Scenes/VRDetectMovesv3_SelectObject.unity
+  isLoaded: 1
+  isActive: 1

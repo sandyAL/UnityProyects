@@ -1,0 +1,4 @@
+sceneSetups:
+- path: Assets/OSVRUnity/Sample/Demo/Scenes/OSVRDemo.unity
+  isLoaded: 1
+  isActive: 1
