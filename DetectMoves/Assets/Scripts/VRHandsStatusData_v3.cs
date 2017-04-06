@@ -106,9 +106,8 @@ public class VRHandsStatusData_v3 : MonoBehaviour {
 		XmlNodeList rigidBodiesList = xmlDoc.GetElementsByTagName("Body");
 		int nRG=rigidBodiesList.Count;
         //Debug.Log(nRG);
-        
 
-        //nRG = 1;
+         //nRG = 1;
         //HANDS POSITIONING
         for (int k = 0; k < 2; k += 1)
         {
@@ -199,7 +198,6 @@ public class VRHandsStatusData_v3 : MonoBehaviour {
             
         }
         countFramesIquals += 1;
-        
         //UPDATE DISTANCE mide la distancia entre las manos, si va aumentando o disminuyendo TODO cambiar esto para una o dos manos movindose
         if (sendUpdate && countFramesIquals > sameFrameWindowSaze && UpdateHandsStatus != null)
         {
@@ -228,7 +226,6 @@ public class VRHandsStatusData_v3 : MonoBehaviour {
             }
             
         }
-        
         //UPDATE CAMERA
         int headID = 2;
        // Debug.Log(nRG);
@@ -257,7 +254,6 @@ public class VRHandsStatusData_v3 : MonoBehaviour {
             //Debug.Log(position);
             //head.transform.position = Vector3.MoveTowards(head.transform.position, position, speed * Time.deltaTime);
         }
-
         //TO-DO Update hand direction 
         if (sendUpdate && countFramesIquals > sameFrameWindowSaze && UpdateHandsStatus != null)
         {
@@ -298,14 +294,17 @@ public class VRHandsStatusData_v3 : MonoBehaviour {
 
 
         }
-
+        
         if (sendUpdate && countFramesIquals > sameFrameWindowSaze && UpdateHandsStatus != null)
         {
             ////////////////
             //Debug.Log(currentStatus.angleMovement[0]);
+            
             UpdateHandsStatus(this, currentStatus);
+            
             sendUpdate = false;
         }
+        
     }
 
         // Update is called once per frame

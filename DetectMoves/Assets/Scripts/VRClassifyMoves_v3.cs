@@ -117,15 +117,14 @@ public class VRClassifyMoves_v3 : MonoBehaviour {
             
             return (int)MaterialColors.White;
         }
-
         //MOVING ONLY RIGHT
         if (newHandStatus.handMoving[0] && !newHandStatus.handMoving[1])
         {
             if (debugMoveId || (getRotationType(newHandStatus.handRotation, newHandStatus.angleNormal) == 1))
             {
                 int type = checkAngleMovement(newHandStatus.angleMovement, 1);
-                
-                if(type != (int)MaterialColors.Silver)
+
+                if (type != (int)MaterialColors.Silver)
                 {
                     Vector3 direction = new Vector3(newHandStatus.handDirection[0].x, 0, newHandStatus.handDirection[0].z);
                     testObject.transform.position += direction.normalized;
@@ -146,11 +145,11 @@ public class VRClassifyMoves_v3 : MonoBehaviour {
             else if (debugMoveId || (getRotationType(newHandStatus.handRotation, newHandStatus.angleNormal) == 2))
             {
                 int type = checkAngleMovement(newHandStatus.angleMovement, 2);
-
                 if (type != (int)MaterialColors.Silver)
                 {
                     Vector3 direction = new Vector3(newHandStatus.handDirection[0].x, 0, newHandStatus.handDirection[0].z);
                     testObject.transform.position += direction.normalized;
+
                 }
                 return type;
             }
@@ -175,6 +174,7 @@ public class VRClassifyMoves_v3 : MonoBehaviour {
                     //PUSH
                     return (int)MaterialColors.Red;
                 }
+                
             }
             else
             {
@@ -204,7 +204,6 @@ public class VRClassifyMoves_v3 : MonoBehaviour {
                 return (int)MaterialColors.Silver;
             }
         }
-
         return (int)MaterialColors.Silver;
     }
 
@@ -213,13 +212,16 @@ public class VRClassifyMoves_v3 : MonoBehaviour {
         //Debug.Log("On received status");
         GameObject RHand = GameObject.Find("rightHand");
         GameObject LHand = GameObject.Find("leftHand");
+        Debug.Log("on update 1");
         //Debug.Log(newHandStatus.handRotation[0]);
-        handColor=getMoveId(newHandStatus);
-        motiveData.GetComponent<VRHandsStatusData_v2>().handColor = handColor;
+        handColor =getMoveId(newHandStatus);
+
+        motiveData.GetComponent<VRHandsStatusData_v3>().handColor = handColor;
+        Debug.Log("on update 2");
         //Debug.Log(handsMaterials[handColor]);
         RHand.GetComponent<ChangeMaterial>().currentMaterial(handsMaterials[handColor]);
         LHand.GetComponent<ChangeMaterial>().currentMaterial(handsMaterials[handColor]);
-        
+        Debug.Log("on update 3");
         /*Debug.Log("Receive update:"+ newHandStatus.id.ToString());
         if (newHandStatus.handMoving[0] != currentHandStatus.handMoving[0])
         {
@@ -258,6 +260,7 @@ public class VRClassifyMoves_v3 : MonoBehaviour {
         currentHandStatus.update(newHandStatus);
         //File.WriteAllText("Output.txt", logRight + "\n" + logLeft+ "\n \n"+ logGeneral);
         //Debug.Log(newHandStatus.id.ToString() + ":\t" + newHandStatus.handMoving[0].ToString() +"\t:\t" + newHandStatus.handMoving[1].ToString());
+        Debug.Log("on update 4");
     }
 
     // Update is called once per frame
